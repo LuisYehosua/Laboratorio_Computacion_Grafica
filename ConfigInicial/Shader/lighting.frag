@@ -26,6 +26,7 @@ uniform vec3 viewPos;
 uniform Material material;
 uniform Light light;
 uniform Light light2;
+uniform sampler2D texture_diffuse1;
 
 void main()
 {
@@ -58,6 +59,6 @@ void main()
     vec3 result = ambient1 + diffuse1 + specular1 +
                   ambient2 + diffuse2 + specular2;
 
+    vec3 texColor = texture(texture_diffuse1, TexCoords).rgb;
     color = vec4(result, 1.0);
-    //color = vec4(result, 1.0f)*texture(texture_diffuse,TexCoords);
 }
